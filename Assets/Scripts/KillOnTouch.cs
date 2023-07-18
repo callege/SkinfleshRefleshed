@@ -1,18 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class KillOnTouch : MonoBehaviour
 {
-    public GameObject player;
-    public CheckpointManager checkpointManager;
+    //Borked death sounds, "respawn" sound plays on awake so that works anyway
 
-    private void OnTriggerEnter(Collider other)
+    //public AudioSource deathSound;
+
+    //public void Start()
+    //{
+        //StartCoroutine(waiter());
+    //}
+
+    //IEnumerator waiter()
+    //{
+    //    yield return new WaitForSeconds(2);
+    //}
+
+    public void OnTriggerEnter(Collider other)
     {
-        Debug.Log("touched");
-        Debug.Log(checkpointManager.currentCheckpoint);
-        player.SetActive(false);
-        player.transform.position = checkpointManager.currentCheckpoint;
-        player.SetActive(true);
+        //deathSound.Play();
+        //waiter();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
