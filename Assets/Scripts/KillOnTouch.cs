@@ -23,6 +23,7 @@ public class KillOnTouch : MonoBehaviour
     {
         //deathSound.Play();
         //waiter();
+        Debug.Log("Player died, scene reloaded");
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
