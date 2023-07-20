@@ -166,7 +166,7 @@ MonoBehaviour:
   characterController: {fileID: 3230235294127149827}
   speed: 16
   gravity: -100
-  jumpHeight: 5
+  jumpHeight: 4.5
   canSprint: 1
   sprintMultiplier: 1.25
   groundCheck: {fileID: 8692817420742425818}
