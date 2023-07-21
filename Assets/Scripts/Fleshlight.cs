@@ -18,7 +18,7 @@ public class Fleshlight : MonoBehaviour
             Click.Play();
             isEnabled = !isEnabled;
             PlayerLight.enabled = !PlayerLight.enabled;
-            Debug.Log($"Fleshlight state: {PlayerLight.enabled}");
+            //Debug.Log($"Fleshlight state: {PlayerLight.enabled}");
         }
     }
 }
