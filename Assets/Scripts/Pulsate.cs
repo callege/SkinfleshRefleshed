@@ -6,8 +6,6 @@ using UnityEngine;
 
 public class Pulsate : MonoBehaviour
 {
-    public GameObject AffectedObject;
-
     private float maxSize;
     public float speed;
 
@@ -18,6 +16,6 @@ public class Pulsate : MonoBehaviour
 
     void Update()
     {
-        AffectedObject.transform.localScale = new Vector3(Mathf.PingPong(Time.time * speed, maxSize), Mathf.PingPong(Time.time * speed, maxSize), Mathf.PingPong(Time.time * speed, maxSize));
+        transform.localScale = new Vector3(Mathf.PingPong(Time.time * speed, maxSize), Mathf.PingPong(Time.time * speed, maxSize), Mathf.PingPong(Time.time * speed, maxSize));
     }
 }
