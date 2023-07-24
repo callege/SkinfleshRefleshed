@@ -5952,6 +5952,11 @@ PrefabInstance:
       propertyPath: SceneName
       value: Throat
       objectReference: {fileID: 0}
+    - target: {fileID: 8260413989673102624, guid: 30c9107b656a45047a3343fe7d14d07f,
+        type: 3}
+      propertyPath: sceneName
+      value: Throat
+      objectReference: {fileID: 0}
     - target: {fileID: 8464138530544369448, guid: 30c9107b656a45047a3343fe7d14d07f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -13176,7 +13181,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-208358
+  m_Name: pb_Mesh-135750
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
