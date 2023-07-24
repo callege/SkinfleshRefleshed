@@ -1,7 +1,5 @@
 # Escape the Skinflesh - Refleshed!
 
-![Escape the Skinflesh - Refleshed!]
-
 Welcome to the official repository for "Escape the Skinflesh - Refleshed!" - a remastered version of the original Roblox game with improved physics, graphics, and extended/remastered stages! This repository serves as the central hub for development, issue tracking, and collaboration for the game.
 
 ## Game Overview
