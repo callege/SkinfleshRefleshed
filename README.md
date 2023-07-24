@@ -26,9 +26,10 @@ This repository contains public demo(s) of the game (with more to come in the fu
 
 ## How to Play
 
-1. Clone or download the repository to your local machine.
-2. Run the executable located within the downloaded files.
-3. Playtest the game and have fun exploring the Skinflesh!
+1. Download the zip file from the latest release under the releases tab.
+2. Extract the folder on your computer.
+3. Run the "SkinfleshRefleshed" executable.
+4. Playtest the game and have fun exploring the Skinflesh!
 
 ## Intended Future Improvements
 
