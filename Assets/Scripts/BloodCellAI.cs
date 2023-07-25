@@ -6,22 +6,10 @@ using UnityEngine;
 public class BloodCellAI : MonoBehaviour
 {
     public Rigidbody body;
-    //public float timeToWait;
     public float maxForce;
-
-    //public void Start()
-    //{
-    //    StartCoroutine(waiter());
-    //}
-
-    //IEnumerator waiter()
-    //{
-    //    yield return new WaitForSeconds(timeToWait);
-    //}
 
     void Update()
     {
-        //waiter();
         float direction = Random.Range(0,2);
         float appliedForce = Random.Range(-maxForce,maxForce);
 

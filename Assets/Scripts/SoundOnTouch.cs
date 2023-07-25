@@ -7,7 +7,6 @@ public class SoundOnTouch : MonoBehaviour
 {
     public void OnTriggerEnter(Collider other)
     {
-        //Debug.Log("touched");
         GetComponentInParent<AudioSource>().Play();
     }
 }
