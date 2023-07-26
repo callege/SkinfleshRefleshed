@@ -1,17 +1,49 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class BrainRotter : MonoBehaviour
 {
-    public float decreaseRate = 10f;
-    //private float currentBrainHealth = GameObject.Find("Brain").GetComponent<PlayerBrainRot>().currentBrainHealth;
-    //private float maxBrainHealth = GameObject.Find("Brain").GetComponent<PlayerBrainRot>().maxBrainHealth;
+    public float decreaseAmountPerSecond = 10f;
 
-    void Update()
+    private PlayerBrainRot playerBrainRot;
+    public bool isColliding;
+
+    private void Start()
     {
-        currentBrainHealth -= decreaseRate * Time.deltaTime;
-        currentBrainHealth = Mathf.Clamp(currentBrainHealth, 0f, maxBrainHealth);
+        playerBrainRot = FindObjectOfType<PlayerBrainRot>();
+        //StartDecreasing();
     }
+
+    //private void StartDecreasing()
+    //{
+    //    StartCoroutine(DecreaseHealthCoroutine());
+    //}
+
+    private void Update()
+    {
+        if (isColliding)
+        {
+            Debug.Log("Decreasing brain health");
+            playerBrainRot.DecreaseBrainHealth(decreaseAmountPerSecond * Time.deltaTime);
+        }
+    }
+
+    public void OnTriggerEnter(UnityEngine.Collider other)
+    {
+        Debug.Log("Is colliding");
+        isColliding = true;
+    }
+
+    public void OnTriggerExit(UnityEngine.Collider other)
+    {
+        isColliding = false;
+    }
+
+    //private IEnumerator DecreaseHealthCoroutine()
+    //{
+    //    while (true)
+    //   {
+    //        playerBrainRot.DecreaseBrainHealth(decreaseAmountPerSecond * Time.deltaTime);
+    //        yield return null; // Wait for the next frame
+    //    }
+    //}
 }

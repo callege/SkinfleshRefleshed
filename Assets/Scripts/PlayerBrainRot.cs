@@ -3,22 +3,33 @@ using UnityEngine.UI;
 
 public class PlayerBrainRot : MonoBehaviour
 {
-    public float maxBrainHealth = 255f;
-    //public float decreaseRate = 10f;
-    public float currentBrainHealth;
+    private float maxBrainHealth = 255f;
+    public float decreaseRatePerSecond = 10f;
+    private float currentBrainHealth;
     public GameObject brainSprite;
+
+    private RectTransform brainRectTransform;
 
     public void Start()
     {
         currentBrainHealth = maxBrainHealth;
+        brainRectTransform = brainSprite.GetComponent<RectTransform>();
+        UpdateBrainColor();
     }
 
-    public void Update()
+    private void UpdateBrainColor()
     {
-        //currentBrainHealth -= decreaseRate * Time.deltaTime;
-        //currentBrainHealth = Mathf.Clamp(currentBrainHealth, 0f, maxBrainHealth);
-
         float normalizedRed = currentBrainHealth / maxBrainHealth;
-        brainSprite.GetComponent<Graphic>().color = new Color(normalizedRed, 182f / 255f, 209f / 255f, 1f);
+        brainSprite.GetComponent<Graphic>().color = new Color(normalizedRed, 63f / 255f, 83f / 255f, 1f);
+
+        float normalizedScale = currentBrainHealth / maxBrainHealth;
+        brainRectTransform.localScale = new Vector3(1f, normalizedScale, 1f);
+    }
+
+    public void DecreaseBrainHealth(float amount)
+    {
+        currentBrainHealth -= amount;
+        currentBrainHealth = Mathf.Clamp(currentBrainHealth, 0f, maxBrainHealth);
+        UpdateBrainColor();
     }
 }
