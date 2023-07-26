@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ImageAnimation : MonoBehaviour
@@ -9,10 +8,10 @@ public class ImageAnimation : MonoBehaviour
 
     public void Start()
     {
-        StartCoroutine(doTheThing());
+        StartCoroutine(Animate());
     }
 
-    IEnumerator doTheThing()
+    IEnumerator Animate()
     {
         for (int i = 0; i < images.Length; i++)
         {
