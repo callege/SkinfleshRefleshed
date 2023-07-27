@@ -7,7 +7,6 @@ public class PlayerBrainRot : MonoBehaviour
     private float maxBrainHealth = 255f;
     public float decreaseRatePerSecond = 5f;
     private float currentBrainHealth;
-    private float originalBrainHealth;
     private bool isColliding;
     private bool isIncreasing;
     public GameObject brainSprite;
@@ -15,32 +14,34 @@ public class PlayerBrainRot : MonoBehaviour
     private Coroutine increaseCoroutine;
     private RectTransform brainRectTransform;
 
+    private float targetBrainHealth;
+    private float regenerationDuration = 4f;
+
     public void Start()
     {
         currentBrainHealth = maxBrainHealth;
-        originalBrainHealth = maxBrainHealth;
         brainRectTransform = brainSprite.GetComponent<RectTransform>();
         UpdateBrainColorAndScale();
     }
 
-    private IEnumerator IncreaseBrainHealthCoroutine()
+    private IEnumerator IncreaseBrainHealthCoroutine(float targetHealth)
     {
+        isIncreasing = true;
         float startTime = Time.time;
-        float endTime = startTime + 4f; // 4 seconds (you can adjust this duration)
+        float endTime = startTime + regenerationDuration;
 
         while (Time.time < endTime)
         {
-            float t = (Time.time - startTime) / (endTime - startTime);
-            // Decrease the rate of increase by raising t to a power (e.g., 2) between 0 and 1.
+            float t = (Time.time - startTime) / regenerationDuration;
             float easedT = Mathf.Pow(t, 2f);
-            currentBrainHealth = Mathf.Lerp(originalBrainHealth, maxBrainHealth, easedT);
+            currentBrainHealth = Mathf.Lerp(targetHealth, maxBrainHealth, easedT);
             UpdateBrainColorAndScale();
             yield return null;
         }
 
-        currentBrainHealth = maxBrainHealth; // Ensure the value reaches maxBrainHealth exactly
+        currentBrainHealth = maxBrainHealth;
         UpdateBrainColorAndScale();
-        isIncreasing = false; // Set the flag to false to stop the coroutine
+        isIncreasing = false;
     }
 
     public void StopIncreaseCoroutine()
@@ -58,13 +59,14 @@ public class PlayerBrainRot : MonoBehaviour
         {
             if (increaseCoroutine != null)
             {
-                StopCoroutine(increaseCoroutine); // Stop the coroutine if there is a collision
+                StopCoroutine(increaseCoroutine);
             }
             DecreaseBrainHealth(decreaseRatePerSecond * Time.deltaTime);
         }
         else if (currentBrainHealth < maxBrainHealth && !isIncreasing)
         {
-            increaseCoroutine = StartCoroutine(IncreaseBrainHealthCoroutine());
+            targetBrainHealth = currentBrainHealth;
+            increaseCoroutine = StartCoroutine(IncreaseBrainHealthCoroutine(targetBrainHealth));
         }
     }
 

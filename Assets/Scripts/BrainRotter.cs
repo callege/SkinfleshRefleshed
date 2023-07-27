@@ -23,15 +23,12 @@ public class BrainRotter : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        //Debug.Log("Is colliding");
-        //isColliding = true;
         playerBrainRot.StopIncreaseCoroutine();
         playerBrainRot.SetIsColliding(true);
     }
 
     private void OnTriggerExit(Collider other)
     {
-        //isColliding = false;
         playerBrainRot.SetIsColliding(false);
     }
 }
