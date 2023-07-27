@@ -10,13 +10,7 @@ public class BrainRotter : MonoBehaviour
     private void Start()
     {
         playerBrainRot = FindObjectOfType<PlayerBrainRot>();
-        //StartDecreasing();
     }
-
-    //private void StartDecreasing()
-    //{
-    //    StartCoroutine(DecreaseHealthCoroutine());
-    //}
 
     private void Update()
     {
@@ -27,23 +21,17 @@ public class BrainRotter : MonoBehaviour
         }
     }
 
-    public void OnTriggerEnter(UnityEngine.Collider other)
+    private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Is colliding");
-        isColliding = true;
+        //Debug.Log("Is colliding");
+        //isColliding = true;
+        playerBrainRot.StopIncreaseCoroutine();
+        playerBrainRot.SetIsColliding(true);
     }
 
-    public void OnTriggerExit(UnityEngine.Collider other)
+    private void OnTriggerExit(Collider other)
     {
-        isColliding = false;
+        //isColliding = false;
+        playerBrainRot.SetIsColliding(false);
     }
-
-    //private IEnumerator DecreaseHealthCoroutine()
-    //{
-    //    while (true)
-    //   {
-    //        playerBrainRot.DecreaseBrainHealth(decreaseAmountPerSecond * Time.deltaTime);
-    //        yield return null; // Wait for the next frame
-    //    }
-    //}
 }
