@@ -17,8 +17,21 @@ public class PlayerBrainRot : MonoBehaviour
     private float targetBrainHealth;
     private float regenerationDuration = 4f;
 
+    public int insanityThreshold = 200;
+    public RectTransform borderRectTransform;
+
+    public float insanityFOV = 50;
+    private float startingFOV;
+    public Camera playerCamera;
+
+    private float startingPlayerSpeed;
+    public GameObject player;
+
+
     public void Start()
     {
+        startingPlayerSpeed = player.GetComponent<PlayerMovement>().speed;
+        startingFOV = Camera.main.fieldOfView;
         currentBrainHealth = maxBrainHealth;
         brainRectTransform = brainSprite.GetComponent<RectTransform>();
         UpdateBrainColorAndScale();
@@ -68,6 +81,22 @@ public class PlayerBrainRot : MonoBehaviour
             targetBrainHealth = currentBrainHealth;
             increaseCoroutine = StartCoroutine(IncreaseBrainHealthCoroutine(targetBrainHealth));
         }
+
+        if(currentBrainHealth < insanityThreshold - 50 && Camera.main.fieldOfView > 60)
+        {
+            Camera.main.fieldOfView -= 1;
+            player.GetComponent<PlayerMovement>().speed = startingPlayerSpeed - 2f;
+        }
+        else if(currentBrainHealth < insanityThreshold - 50 && Camera.main.fieldOfView < 60)
+        {
+            Camera.main.fieldOfView += 1;
+        }
+        else
+        {
+            Camera.main.fieldOfView = startingFOV;
+            player.GetComponent<PlayerMovement>().speed = startingPlayerSpeed;
+        }
+        
     }
 
     private void UpdateBrainColorAndScale()
@@ -77,6 +106,15 @@ public class PlayerBrainRot : MonoBehaviour
 
         float normalizedScale = currentBrainHealth / maxBrainHealth;
         brainRectTransform.localScale = new Vector3(1f, normalizedScale, 1f);
+
+        if(currentBrainHealth < insanityThreshold)
+        {
+            borderRectTransform.localScale = new Vector3(1f, 1f, 1f);
+        }
+        else
+        {
+            borderRectTransform.localScale = new Vector3(0f, 0f, 0f);
+        }
     }
 
     public void DecreaseBrainHealth(float amount)
