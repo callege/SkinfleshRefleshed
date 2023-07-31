@@ -95,7 +95,6 @@ public class PlayerBrainRot : MonoBehaviour
             Camera.main.fieldOfView = startingFOV;
             player.GetComponent<PlayerMovement>().speed = startingPlayerSpeed;
         }
-        
     }
 
     private void UpdateBrainColorAndScale()
