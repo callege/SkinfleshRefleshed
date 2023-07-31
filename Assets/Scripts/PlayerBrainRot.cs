@@ -27,7 +27,6 @@ public class PlayerBrainRot : MonoBehaviour
     private float startingPlayerSpeed;
     public GameObject player;
 
-
     public void Start()
     {
         startingPlayerSpeed = player.GetComponent<PlayerMovement>().speed;
