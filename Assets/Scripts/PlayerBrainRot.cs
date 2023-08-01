@@ -81,61 +81,21 @@ public class PlayerBrainRot : MonoBehaviour
             increaseCoroutine = StartCoroutine(IncreaseBrainHealthCoroutine(targetBrainHealth));
         }
 
-        UpdateFOV(); // Update the FOV smoothly
-    }
-
-    private void UpdateFOV()
-    {
-        if (currentBrainHealth < insanityThreshold - 50 && Camera.main.fieldOfView > insanityFOV)
+        if(currentBrainHealth < insanityThreshold - 50 && Camera.main.fieldOfView > 60)
         {
-            // Smoothly increase FOV for a more intense effect as currentBrainHealth lowers
-            float targetFOV = Camera.main.fieldOfView + 0.5f * (insanityThreshold - currentBrainHealth);
-            targetFOV = Mathf.Clamp(targetFOV, insanityFOV, startingFOV); // Ensure FOV is within a specific range
-            ChangeFOVSmoothly(targetFOV, 0.5f); // Adjust the duration as needed
+            Camera.main.fieldOfView -= 0.5f * (insanityThreshold - currentBrainHealth);
             player.GetComponent<PlayerMovement>().speed = startingPlayerSpeed - 2f;
         }
-        else if (currentBrainHealth < insanityThreshold - 50 && Camera.main.fieldOfView < insanityFOV)
+        else if(currentBrainHealth < insanityThreshold - 50 && Camera.main.fieldOfView < 60)
         {
-            // Smoothly decrease FOV to its normal state
-            float targetFOV = Camera.main.fieldOfView - 0.5f * (insanityThreshold - currentBrainHealth);
-            targetFOV = Mathf.Clamp(targetFOV, insanityFOV, startingFOV); // Ensure FOV is within a specific range
-            ChangeFOVSmoothly(targetFOV, 0.5f); // Adjust the duration as needed
+            Camera.main.fieldOfView += 0.5f * (insanityThreshold - currentBrainHealth);
         }
         else
         {
-            // Reset to the starting FOV and player speed
-            ChangeFOVSmoothly(startingFOV, 0.5f); // Adjust the duration as needed
+            Camera.main.fieldOfView = startingFOV;
             player.GetComponent<PlayerMovement>().speed = startingPlayerSpeed;
         }
     }
-
-    private bool isChangingFOV = false;
-
-    private void ChangeFOVSmoothly(float targetFOV, float duration)
-    {
-        if (isChangingFOV) return;
-        StartCoroutine(ChangeFOVRoutine(targetFOV, duration));
-    }
-
-    private IEnumerator ChangeFOVRoutine(float targetFOV, float duration)
-    {
-        isChangingFOV = true;
-        float startFOV = Camera.main.fieldOfView;
-        float timePassed = 0f;
-
-        while (timePassed < duration)
-        {
-            timePassed += Time.deltaTime;
-            float t = Mathf.Clamp01(timePassed / duration);
-            Camera.main.fieldOfView = Mathf.Lerp(startFOV, targetFOV, t);
-
-            yield return null;
-        }
-
-        Camera.main.fieldOfView = targetFOV;
-        isChangingFOV = false;
-    }
-
 
     private void UpdateBrainColorAndScale()
     {
