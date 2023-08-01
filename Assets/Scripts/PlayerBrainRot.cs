@@ -83,12 +83,12 @@ public class PlayerBrainRot : MonoBehaviour
 
         if(currentBrainHealth < insanityThreshold - 50 && Camera.main.fieldOfView > 60)
         {
-            Camera.main.fieldOfView -= 1;
+            Camera.main.fieldOfView -= 0.5f * (insanityThreshold - currentBrainHealth);
             player.GetComponent<PlayerMovement>().speed = startingPlayerSpeed - 2f;
         }
         else if(currentBrainHealth < insanityThreshold - 50 && Camera.main.fieldOfView < 60)
         {
-            Camera.main.fieldOfView += 1;
+            Camera.main.fieldOfView += 0.5f * (insanityThreshold - currentBrainHealth);
         }
         else
         {
