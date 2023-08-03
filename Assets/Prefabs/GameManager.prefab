@@ -44,7 +44,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61cf541aaf77d1044a340d1aa01966bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  decreaseRatePerSecond: 10
+  decreaseRatePerSecond: 8
   brainSprite: {fileID: 0}
   insanityThreshold: 200
   borderRectTransform: {fileID: 0}
+  insanityFOV: 60
+  playerCamera: {fileID: 0}
+  player: {fileID: 0}

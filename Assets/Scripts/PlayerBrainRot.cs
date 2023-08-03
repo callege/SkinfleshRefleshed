@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class PlayerBrainRot : MonoBehaviour
 {
     private float maxBrainHealth = 255f;
-    public float decreaseRatePerSecond = 5f;
+    public float decreaseRatePerSecond = 8f;
     private float currentBrainHealth;
     private bool isColliding;
     private bool isIncreasing;
@@ -17,10 +17,10 @@ public class PlayerBrainRot : MonoBehaviour
     private float targetBrainHealth;
     private float regenerationDuration = 4f;
 
-    public int insanityThreshold = 200;
+    public float insanityThreshold = 200f;
     public RectTransform borderRectTransform;
 
-    public float insanityFOV = 50;
+    public float insanityFOV = 60f;
     private float startingFOV;
     public Camera playerCamera;
 
@@ -81,19 +81,33 @@ public class PlayerBrainRot : MonoBehaviour
             increaseCoroutine = StartCoroutine(IncreaseBrainHealthCoroutine(targetBrainHealth));
         }
 
-        if(currentBrainHealth < insanityThreshold - 50 && Camera.main.fieldOfView > 60)
+        // This is the currently broken FOV zoom in and out for when the insanity threshold is met, however it 
+        // currently causes an epilepsy inducing effect and should not be used until fixed if at all. Might fix one day.
+
+        //if(currentBrainHealth < insanityThreshold - 50 && Camera.main.fieldOfView > 60)
+        //{
+        //    Camera.main.fieldOfView -= 0.5f * (insanityThreshold - currentBrainHealth);
+        //    player.GetComponent<PlayerMovement>().speed = startingPlayerSpeed - 2f;
+        //}
+        //else if(currentBrainHealth < insanityThreshold - 50 && Camera.main.fieldOfView < 60)
+        //{
+        //    Camera.main.fieldOfView += 0.5f * (insanityThreshold - currentBrainHealth);
+        //}
+        //else
+        //{
+        //    Camera.main.fieldOfView = startingFOV;
+        //    player.GetComponent<PlayerMovement>().speed = startingPlayerSpeed;
+        //}
+
+        if(currentBrainHealth < insanityThreshold - 50)
         {
-            Camera.main.fieldOfView -= 0.5f * (insanityThreshold - currentBrainHealth);
-            player.GetComponent<PlayerMovement>().speed = startingPlayerSpeed - 2f;
-        }
-        else if(currentBrainHealth < insanityThreshold - 50 && Camera.main.fieldOfView < 60)
-        {
-            Camera.main.fieldOfView += 0.5f * (insanityThreshold - currentBrainHealth);
+            player.GetComponent<PlayerMovement>().speed = startingPlayerSpeed - startingPlayerSpeed * 0.25f;
+            playerCamera.fieldOfView = insanityFOV;
         }
         else
         {
-            Camera.main.fieldOfView = startingFOV;
             player.GetComponent<PlayerMovement>().speed = startingPlayerSpeed;
+            playerCamera.fieldOfView = startingFOV;
         }
     }
 
