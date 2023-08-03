@@ -600,7 +600,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 3034
+  m_VersionIndex: 3040
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -712,13 +712,13 @@ GameObject:
   - component: {fileID: 1286460000212300381}
   - component: {fileID: 7215685759570202243}
   - component: {fileID: 899151793577280450}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_StaticEditorFlags: 2147483647
+  m_IsActive: 0
 --- !u!4 &4753803709244833534
 Transform:
   m_ObjectHideFlags: 0
@@ -809,6 +809,7 @@ GameObject:
   - component: {fileID: 7735055968394766474}
   - component: {fileID: 8421362999573359893}
   - component: {fileID: 775685731455748346}
+  - component: {fileID: 5826726936258370869}
   m_Layer: 9
   m_Name: Apple
   m_TagString: Untagged
@@ -881,3 +882,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &5826726936258370869
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9145526508845642275}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -4816628290072791425, guid: 225118d56e3acc447b3d5eb4fe294ae8, type: 3}

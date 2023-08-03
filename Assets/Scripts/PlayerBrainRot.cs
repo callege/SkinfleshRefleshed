@@ -20,7 +20,6 @@ public class PlayerBrainRot : MonoBehaviour
     public float insanityThreshold = 200f;
     public RectTransform borderRectTransform;
 
-    public float insanityFOV = 60f;
     private float startingFOV;
     public Camera playerCamera;
 
@@ -34,6 +33,38 @@ public class PlayerBrainRot : MonoBehaviour
         currentBrainHealth = maxBrainHealth;
         brainRectTransform = brainSprite.GetComponent<RectTransform>();
         UpdateBrainColorAndScale();
+    }
+
+    private void Update()
+    {
+        if (isColliding)
+        {
+            if (increaseCoroutine != null)
+            {
+                StopCoroutine(increaseCoroutine);
+            }
+            DecreaseBrainHealth(decreaseRatePerSecond * Time.deltaTime);
+        }
+        else if (currentBrainHealth < maxBrainHealth && !isIncreasing)
+        {
+            targetBrainHealth = currentBrainHealth;
+            increaseCoroutine = StartCoroutine(IncreaseBrainHealthCoroutine(targetBrainHealth));
+        }
+
+        if (currentBrainHealth < insanityThreshold - 50)
+        {
+            player.GetComponent<PlayerMovement>().speed = startingPlayerSpeed - 2;
+            playerCamera.fieldOfView = currentBrainHealth - 80;
+            if (playerCamera.fieldOfView < 50)
+            {
+                playerCamera.fieldOfView = 50;
+            }
+        }
+        else
+        {
+            player.GetComponent<PlayerMovement>().speed = startingPlayerSpeed;
+            playerCamera.fieldOfView = startingFOV;
+        }
     }
 
     private IEnumerator IncreaseBrainHealthCoroutine(float targetHealth)
@@ -62,52 +93,6 @@ public class PlayerBrainRot : MonoBehaviour
         {
             StopCoroutine(increaseCoroutine);
             isIncreasing = false;
-        }
-    }
-
-    private void Update()
-    {
-        if (isColliding)
-        {
-            if (increaseCoroutine != null)
-            {
-                StopCoroutine(increaseCoroutine);
-            }
-            DecreaseBrainHealth(decreaseRatePerSecond * Time.deltaTime);
-        }
-        else if (currentBrainHealth < maxBrainHealth && !isIncreasing)
-        {
-            targetBrainHealth = currentBrainHealth;
-            increaseCoroutine = StartCoroutine(IncreaseBrainHealthCoroutine(targetBrainHealth));
-        }
-
-        // This is the currently broken FOV zoom in and out for when the insanity threshold is met, however it 
-        // currently causes an epilepsy inducing effect and should not be used until fixed if at all. Might fix one day.
-
-        //if(currentBrainHealth < insanityThreshold - 50 && Camera.main.fieldOfView > 60)
-        //{
-        //    Camera.main.fieldOfView -= 0.5f * (insanityThreshold - currentBrainHealth);
-        //    player.GetComponent<PlayerMovement>().speed = startingPlayerSpeed - 2f;
-        //}
-        //else if(currentBrainHealth < insanityThreshold - 50 && Camera.main.fieldOfView < 60)
-        //{
-        //    Camera.main.fieldOfView += 0.5f * (insanityThreshold - currentBrainHealth);
-        //}
-        //else
-        //{
-        //    Camera.main.fieldOfView = startingFOV;
-        //    player.GetComponent<PlayerMovement>().speed = startingPlayerSpeed;
-        //}
-
-        if(currentBrainHealth < insanityThreshold - 50)
-        {
-            player.GetComponent<PlayerMovement>().speed = startingPlayerSpeed - startingPlayerSpeed * 0.25f;
-            playerCamera.fieldOfView = insanityFOV;
-        }
-        else
-        {
-            player.GetComponent<PlayerMovement>().speed = startingPlayerSpeed;
-            playerCamera.fieldOfView = startingFOV;
         }
     }
 

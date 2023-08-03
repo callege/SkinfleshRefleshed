@@ -1,7 +1,5 @@
 using UnityEngine;
 
-// Put me next to the CharacterController (in the player itself)
-
 public class PlayerMovement : MonoBehaviour
 {
     public CharacterController characterController;
@@ -49,6 +47,12 @@ public class PlayerMovement : MonoBehaviour
         }
 
         velocity.y += gravity * Time.deltaTime;
+
+        // Cap the vertical velocity so that the player doesn't go flying downwards
+        if(velocity.y < -100) 
+        {
+            velocity.y = -100;
+        }
 
         characterController.Move(velocity * Time.deltaTime);
     }
