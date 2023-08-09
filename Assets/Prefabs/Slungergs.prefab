@@ -2259,7 +2259,7 @@ MonoBehaviour:
   joint: {fileID: 1593453287827700840}
   timeToWait: 0.05
   minJiggleJump: 0.1
-  maxJiggleJump: 0.5
+  maxJiggleJump: 0.3
 --- !u!1 &2043010464964278792
 GameObject:
   m_ObjectHideFlags: 0
@@ -4519,7 +4519,7 @@ MonoBehaviour:
   joint: {fileID: 2043010464964278792}
   timeToWait: 0.05
   minJiggleJump: 0.1
-  maxJiggleJump: 0.5
+  maxJiggleJump: 0.3
 --- !u!1 &2921655187961105885
 GameObject:
   m_ObjectHideFlags: 0
@@ -6779,7 +6779,7 @@ MonoBehaviour:
   joint: {fileID: 2921655187961105885}
   timeToWait: 0.05
   minJiggleJump: 0.1
-  maxJiggleJump: 0.5
+  maxJiggleJump: 0.3
 --- !u!1 &3099510194058814432
 GameObject:
   m_ObjectHideFlags: 0
@@ -11267,7 +11267,7 @@ MonoBehaviour:
   joint: {fileID: 3267321614415949565}
   timeToWait: 0.05
   minJiggleJump: 0.1
-  maxJiggleJump: 0.5
+  maxJiggleJump: 0.3
 --- !u!1 &3271621404554351117
 GameObject:
   m_ObjectHideFlags: 0
@@ -13527,7 +13527,7 @@ MonoBehaviour:
   joint: {fileID: 3271621404554351117}
   timeToWait: 0.05
   minJiggleJump: 0.1
-  maxJiggleJump: 0.5
+  maxJiggleJump: 0.3
 --- !u!1 &4285221718698568405
 GameObject:
   m_ObjectHideFlags: 0
@@ -15832,7 +15832,7 @@ MonoBehaviour:
   joint: {fileID: 5495982863496707297}
   timeToWait: 0.05
   minJiggleJump: 0.1
-  maxJiggleJump: 0.5
+  maxJiggleJump: 0.3
 --- !u!1 &5824843416436057287
 GameObject:
   m_ObjectHideFlags: 0
@@ -18092,7 +18092,7 @@ MonoBehaviour:
   joint: {fileID: 5824843416436057287}
   timeToWait: 0.05
   minJiggleJump: 0.1
-  maxJiggleJump: 0.5
+  maxJiggleJump: 0.3
 --- !u!1 &7272939054216604939
 GameObject:
   m_ObjectHideFlags: 0
@@ -20352,7 +20352,7 @@ MonoBehaviour:
   joint: {fileID: 7272939054216604939}
   timeToWait: 0.05
   minJiggleJump: 0.1
-  maxJiggleJump: 0.5
+  maxJiggleJump: 0.3
 --- !u!1 &7663926541175741115
 GameObject:
   m_ObjectHideFlags: 0
@@ -22612,7 +22612,7 @@ MonoBehaviour:
   joint: {fileID: 7663926541175741115}
   timeToWait: 0.05
   minJiggleJump: 0.1
-  maxJiggleJump: 0.5
+  maxJiggleJump: 0.3
 --- !u!1 &7674023973491017967
 GameObject:
   m_ObjectHideFlags: 0
@@ -24872,7 +24872,7 @@ MonoBehaviour:
   joint: {fileID: 7674023973491017967}
   timeToWait: 0.05
   minJiggleJump: 0.1
-  maxJiggleJump: 0.5
+  maxJiggleJump: 0.3
 --- !u!1 &7723848166021442858
 GameObject:
   m_ObjectHideFlags: 0
@@ -27132,7 +27132,7 @@ MonoBehaviour:
   joint: {fileID: 7723848166021442858}
   timeToWait: 0.05
   minJiggleJump: 0.1
-  maxJiggleJump: 0.5
+  maxJiggleJump: 0.3
 --- !u!1 &8262443423210820644
 GameObject:
   m_ObjectHideFlags: 0
@@ -29392,7 +29392,7 @@ MonoBehaviour:
   joint: {fileID: 8262443423210820644}
   timeToWait: 0.05
   minJiggleJump: 0.1
-  maxJiggleJump: 0.5
+  maxJiggleJump: 0.3
 --- !u!1 &8482082733397481218
 GameObject:
   m_ObjectHideFlags: 0
@@ -31652,4 +31652,4 @@ MonoBehaviour:
   joint: {fileID: 8482082733397481218}
   timeToWait: 0.05
   minJiggleJump: 0.1
-  maxJiggleJump: 0.5
+  maxJiggleJump: 0.3
