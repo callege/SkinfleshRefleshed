@@ -20,7 +20,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &8464138530544369448
 Transform:
@@ -357,7 +357,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3adfd492b61210408d59182d84198a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SceneName: Fallback
+  sceneName: 
 --- !u!1 &4836257885904903467
 GameObject:
   m_ObjectHideFlags: 0
@@ -372,7 +372,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1928968743002616087
 Transform:
