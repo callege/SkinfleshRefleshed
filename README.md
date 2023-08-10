@@ -16,11 +16,11 @@ This repository contains public demo(s) of the game (with more to come in the fu
 
 - **Improved Physics:** Experience smoother and more responsive controls, making the platforming mechanics even more enjoyable.
 
+- **Additional Features:** There are new gameplay mechanics to spice up the experience and to push past the limits of the previous game.
+
 - **Enhanced Graphics:** The game now boasts upgraded visuals, breathing new life into the Skinflesh's dark and eerie world.
 
 - **Extended and Remastered Stages:** Discover additional content and redesigned levels that will challenge both new and returning players.
-
-- **Deeper Focus on Story:** Immerse yourself in a captivating narrative that adds depth and mystery to the game's atmosphere.
 
 - **First-Person Perspective:** Explore the haunting world of the Skinflesh from a first-person view, intensifying the fleshy visuals.
 
@@ -34,11 +34,7 @@ This repository contains public demo(s) of the game (with more to come in the fu
 ## Intended Future Improvements
 
 Please note that these are only intended features and these additions are subject to possible change.
-- The addition of a playermodel and animation.
 - The addition of the rest of the stages from the original game.
-- The addition of collectable lore texts throughout the game.
-- The creation of a proper menu system.
-- Possible addition of lore based cutscenes.
 - A complete overhaul for the gameplay of the ending, while still staying true to the original game and lore.
 - General performance optimisations.
 
