@@ -18,8 +18,8 @@ EditorBuildSettings:
     path: Assets/Scenes/Spawn.unity
     guid: 52bc04543f55b7e4f99c9cc38e2c041c
   - enabled: 0
-    path: Assets/Scenes/Fallback.unity
-    guid: 84daca3dccc31b041ac35e4750d7dd66
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/Throat.unity
     guid: aedb8ba88d44b514aa1a43f8e679c302
@@ -29,6 +29,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Stomach.unity
     guid: 8e0f00a0af61a1c49992e96f58143ab2
+  - enabled: 0
+    path: Assets/Scenes/LargeFuntestence.unity
+    guid: 94ddb4a2075f0094383ce7c465bbfb3d
   - enabled: 1
     path: Assets/Scenes/Winner.unity
     guid: bbe047eb151ebbf439e3c8df2fa2e7c1
