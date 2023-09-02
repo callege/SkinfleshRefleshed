@@ -18,8 +18,8 @@ TagManager:
   - DynamicObject
   - Player
   - PostProcessing
-  - 
-  - 
+  - NoLampPost
+  - IgnorFlashlight
   - 
   - 
   - 
