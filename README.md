@@ -44,7 +44,7 @@ If you encounter any bugs, glitches, or have suggestions for improvements, pleas
 
 ## Credits
 
-This game is developed and maintained by Ava Sutcliffe - [@PercentMage9](https://github.com/PercentMage9).
+This game is developed and maintained by Ava - [@PercentMage9](https://github.com/PercentMage9).
 The original game was developed by both myself (PercentMage9) and my friend CallMeZord.
 CallMeZord and another friend, WildWolf0006, helped with concepts, some graphics (such as textures) and the lore surrounding the game.
 
