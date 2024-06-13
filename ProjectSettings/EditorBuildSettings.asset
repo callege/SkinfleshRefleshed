@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 1a1b3bf03a190bb47b6eb2beb8e1d086
   - enabled: 1
+    path: Assets/Scenes/MaksLevel.unity
+    guid: ea9b02c738e71ec47a9bbfc9c5c33cea
+  - enabled: 1
     path: Assets/Scenes/Spawn.unity
     guid: 52bc04543f55b7e4f99c9cc38e2c041c
   - enabled: 0

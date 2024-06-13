@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Fleshlight : MonoBehaviour
+public class Flashlight : MonoBehaviour
 {
     public Light PlayerLight;
     public AudioSource Click;
