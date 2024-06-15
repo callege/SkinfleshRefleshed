@@ -1,8 +1,12 @@
+using System.Collections;
 using UnityEngine;
 
 public class ScoreObject : MonoBehaviour
 {
     private GameObject gameManager;
+    public MeshRenderer meshRenderer;
+    public Collider collider;
+    public AudioSource sound;
 
     private void Start()
     {
@@ -13,8 +17,17 @@ public class ScoreObject : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+            collider.enabled = false;
             gameManager.GetComponent<Score>().ChangeScore(100);
-            Destroy(gameObject);
+            meshRenderer.enabled = false;
+            sound.Play();
+            StartCoroutine(DestroyThing());
         }
+    }
+
+    IEnumerator DestroyThing()
+    {
+        yield return new WaitForSeconds(3f);
+        Destroy(gameObject);
     }
 }
