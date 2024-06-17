@@ -4,30 +4,39 @@ using UnityEngine;
 public class ScoreObject : MonoBehaviour
 {
     private GameObject gameManager;
+    private float xChangeVal;
+    private float zChangeVal;
     public MeshRenderer meshRenderer;
-    public Collider collider;
+    public Collider thingCollider;
     public AudioSource sound;
 
     private void Start()
     {
         gameManager = GameObject.Find("_GameManager");
+
+        xChangeVal = transform.position.x + Random.Range(-8, 8);
+        zChangeVal = transform.position.z + Random.Range(-8, 8);
+
+        transform.position = new Vector3(xChangeVal, transform.position.y, zChangeVal);
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
         {
-            collider.enabled = false;
+            thingCollider.enabled = false;
             gameManager.GetComponent<Score>().ChangeScore(100);
+            gameManager.GetComponent<Timer>().ChangeTime(4);
             meshRenderer.enabled = false;
             sound.Play();
-            StartCoroutine(DestroyThing());
+            StartCoroutine(RespawnThing());
         }
     }
 
-    IEnumerator DestroyThing()
+    IEnumerator RespawnThing()
     {
-        yield return new WaitForSeconds(3f);
-        Destroy(gameObject);
+        yield return new WaitForSeconds(8f);
+        thingCollider.enabled = true;
+        meshRenderer.enabled = true;
     }
 }

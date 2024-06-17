@@ -112,7 +112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   meshRenderer: {fileID: 1602645163252898083}
-  collider: {fileID: 8323010397195600392}
+  thingCollider: {fileID: 8323010397195600392}
   sound: {fileID: 5886149430666027492}
 --- !u!82 &5886149430666027492
 AudioSource:
